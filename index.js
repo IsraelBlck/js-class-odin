@@ -1,9 +1,14 @@
-// store game items []
+// store game items [] and winner 
 let gameCards = ["rock", "paper", "scissors"];
+let winners = [];
+
 
 // play game function
 function game() {
-    playRound()
+    for(let i = 0; i <=5; i++){
+      playRound()
+    }
+    logWins()
 }
 // Play single round function
 
@@ -11,7 +16,7 @@ function playRound() {
   const playerSelection = getPlayerChoice();
   const computerSelection = getComputerChoice();
   const winner = getWinner(playerSelection, computerSelection);
-  console.log(winner)
+  winners.push(winner)
 }
 
 
@@ -61,6 +66,18 @@ function getWinner(playerC, computerC){
   } else {
     return "Computer";
   }
+}
+
+// Show winner
+function logWins() {
+  let playerWins = winners.filter((item) => item == 'Player').length;
+  let computerWins = winners.filter((item) => item == 'Computer').length;
+  let draws = winners.filter((item) => item == 'Tie').length;
+
+  console.log('Result:')
+  console.log('Player: ', playerWins);
+  console.log('Computer: ', computerWins);
+  console.log('Draw: ', draws)
 }
 
 game()
