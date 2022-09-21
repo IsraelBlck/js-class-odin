@@ -5,18 +5,19 @@ let winners = [];
 
 // play game function
 function game() {
-    for(let i = 0; i <=5; i++){
-      playRound()
+    for(let i = 1; i <=5; i++){
+      playRound(i)
     }
     logWins()
 }
 // Play single round function
 
-function playRound() {
+function playRound(round) {
   const playerSelection = getPlayerChoice();
   const computerSelection = getComputerChoice();
   const winner = getWinner(playerSelection, computerSelection);
   winners.push(winner)
+  showRound(playerSelection,computerSelection,winner,round)
 }
 
 
@@ -78,6 +79,16 @@ function logWins() {
   console.log('Player: ', playerWins);
   console.log('Computer: ', computerWins);
   console.log('Draw: ', draws)
+}
+
+//Show round winner and result
+
+function showRound(playerChoice, computerChoice, winner, round) {
+  console.log('Round:', round)
+  console.log('Player chose:', playerChoice)
+  console.log('Computer choice', computerChoice)
+  console.log('Won the round',winner )
+  console.log('-----------------------------');
 }
 
 game()
