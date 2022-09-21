@@ -1,15 +1,18 @@
+
+
 // store game items [] and winner 
 let gameCards = ["rock", "paper", "scissors"];
 let winners = [];
 
-
 // play game function
-function game() {
+document.getElementById("btn").onclick = game => {
     for(let i = 1; i <=5; i++){
       playRound(i)
     }
     logWins()
-}
+};
+
+
 // Play single round function
 
 function playRound(round) {
@@ -86,10 +89,9 @@ function logWins() {
 function showRound(playerChoice, computerChoice, winner, round) {
   console.log('Round:', round)
   console.log('Player chose:', playerChoice)
-  console.log('Computer choice', computerChoice)
-  console.log('Won the round',winner )
+  console.log('Computer chose:', computerChoice)
+  console.log('Won the round:',winner )
   console.log('-----------------------------');
 }
 
-game()
 
